@@ -1,0 +1,134 @@
+/* Base Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Wrapper ensures content takes up remaining space */
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content should grow to fill the available space */
+.content {
+    flex: 1;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* White text */
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #bb86fc; /* Purple highlight for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #e3a7fc; /* Slightly lighter purple for hover */
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1e1e1e; /* Slightly lighter dark color for the navbar */
+    border-bottom: 1px solid #bb86fc; /* Purple border */
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff; /* White text for links */
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: #bb86fc; /* Purple highlight on hover */
+}
+
+/* Footer */
+footer {
+    background-color: #1e1e1e; /* Match navbar */
+    color: #bbbbbb; /* Lighter gray text */
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+/* Buttons */
+button {
+    background-color: #bb86fc; /* Purple buttons */
+    color: #121212; /* Dark text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #9a64e0; /* Slightly darker purple */
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #bb86fc; /* Purple highlights for headings */
+}
+
+/* Forms */
+input, textarea {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #bb86fc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #bbbbbb;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #e3a7fc;
+}
+
+/* Custom Colors */
+.text-purple {
+    color: #bb86fc; /* Purple text */
+}
+
+.card {
+    background-color: #1e1e1e; /* Dark cards */
+    color: #ffffff; /* White text */
+    border: 0px; /* No borders */
+}
+
+.card-title {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #bb86fc;
+    display: inline-block;
+}
+
+a {
+    color: #bb86fc;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e3a7fc;
+    text-decoration: underline;
+}
+
+.btn-link {
+    text-decoration: none;
+    color: #bb86fc;
+}
+
+.btn-link:hover {
+    color: #e3a7fc;
+}

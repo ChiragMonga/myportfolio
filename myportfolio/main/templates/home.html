@@ -1,10 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home | My Portfolio{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- About Me -->
+    <div class="card mb-4 bg-dark text-white border-light">
+        <div class="card-header">
+            <button class="btn btn-link text-purple" type="button" data-bs-toggle="collapse" data-bs-target="#aboutContent" aria-expanded="true" aria-controls="aboutContent">
+                <h2 class="mb-0">About Me</h2>
+            </button>
+        </div>
+        <div id="aboutContent" class="collapse show">
+            <div class="card-body">
+                <p>
+                    Hi, I'm **Chirag Monga**, a passionate Software Engineer specializing in scalable, secure, and user-focused solutions.
+                    I love solving complex problems, whether through backend development or automated testing.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="card mb-4 bg-dark text-white border-light">
+        <div class="card-header">
+            <button class="btn btn-link text-purple" type="button" data-bs-toggle="collapse" data-bs-target="#skillsContent" aria-expanded="false" aria-controls="skillsContent">
+                <h2 class="mb-0">Skills</h2>
+            </button>
+        </div>
+        <div id="skillsContent" class="collapse">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Programming Languages</h5>
+                        <ul>
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>C++</li>
+                            <li>Swift</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Frameworks & Tools</h5>
+                        <ul>
+                            <li>Django</li>
+                            <li>React</li>
+                            <li>Docker</li>
+                            <li>Selenium</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Databases</h5>
+                        <ul>
+                            <li>PostgreSQL</li>
+                            <li>MySQL</li>
+                            <li>SQLite</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="card mb-4 bg-dark text-white border-light">
+        <div class="card-header">
+            <button class="btn btn-link text-purple" type="button" data-bs-toggle="collapse" data-bs-target="#experienceContent" aria-expanded="false" aria-controls="experienceContent">
+                <h2 class="mb-0">Experience</h2>
+            </button>
+        </div>
+        <div id="experienceContent" class="collapse">
+            <div class="card-body">
+                <ul>
+                    <li><strong>Delta Controls Inc.</strong> - Software Developer in Test</li>
+                    <li><strong>Co-op at XYZ Company</strong> - Backend Development</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education -->
+    <div class="card mb-4 bg-dark text-white border-light">
+        <div class="card-header">
+            <button class="btn btn-link text-purple" type="button" data-bs-toggle="collapse" data-bs-target="#educationContent" aria-expanded="false" aria-controls="educationContent">
+                <h2 class="mb-0">Education</h2>
+            </button>
+        </div>
+        <div id="educationContent" class="collapse">
+            <div class="card-body">
+                <p>Bachelor of Science in Computer Science</p>
+                <p><em>University Name Here</em></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="card mb-4 bg-dark text-white border-light">
+        <div class="card-header">
+            <button class="btn btn-link text-purple" type="button" data-bs-toggle="collapse" data-bs-target="#contactContent" aria-expanded="false" aria-controls="contactContent">
+                <h2 class="mb-0">Contact</h2>
+            </button>
+        </div>
+        <div id="contactContent" class="collapse">
+            <div class="card-body text-center">
+                <p>Email: <a href="mailto:chirag.monga@hotmail.ca" class="text-purple">chirag.monga@hotmail.ca</a></p>
+                <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-purple">linkedin.com/in/yourprofile</a></p>
+                <p>GitHub: <a href="https://github.com/yourgithub" target="_blank" class="text-purple">github.com/yourgithub</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
