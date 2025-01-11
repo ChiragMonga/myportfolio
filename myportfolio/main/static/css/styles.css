@@ -1,134 +1,485 @@
-/* Base Styles */
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+
+:root {
+    --primary-bg-color: #121212;
+    --secondary-bg-color: #1e1e1e;
+    --primary-text-color: #ffffff;
+    --secondary-text-color: #d1d1d1;
+    --accent-color: #bb86fc;
+    --highlight-color: rgba(142, 68, 173, 0.8);
+    --font-family-main: 'TypoGraphica', sans-serif;
 }
 
-/* Wrapper ensures content takes up remaining space */
-.wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+@font-face {
+    font-family: 'TypoGraphica'; /* Custom font */
+    src: url('../webfonts/TypoGraphica.otf') format('opentype'); /* Specify font format */
+    font-display: swap; /* Improves performance */
 }
 
-/* Content should grow to fill the available space */
-.content {
-    flex: 1;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #121212; /* Dark background */
-    color: #ffffff; /* White text */
+/* Reset for cross-browser consistency */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family-main); /* Add fallback font */
+    letter-spacing: 0.05em;
 }
 
-a {
-    color: #bb86fc; /* Purple highlight for links */
-    text-decoration: none;
+html, body {
+    height: 100%; /* Full height */
+    overflow: hidden; /* Prevent unintended scrolling */
+    background-color: var(--primary-bg-color); /* Dark background */
+    color: var(--primary-text-color); /* Light text */
+    scroll-behavior: smooth; /* Smooth scrolling for links */
 }
 
-a:hover {
-    text-decoration: underline;
-    color: #e3a7fc; /* Slightly lighter purple for hover */
+/* Scroll-Snapping Container */
+.content {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    height: 100vh; /* Full height for each card */
+    overflow-y: scroll; /* Enable vertical scrolling */
+    scroll-snap-type: y mandatory; /* Enable vertical snap scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on Safari */
 }
 
-/* Navbar */
-.navbar {
-    background-color: #1e1e1e; /* Slightly lighter dark color for the navbar */
-    border-bottom: 1px solid #bb86fc; /* Purple border */
+/* Individual Cards */
+.card {
+    display: flex; /* Flexbox for centering */
+    flex-direction: column; /* Stack content inside vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    min-height: 100vh; /* Full viewport height for cards */
+    scroll-snap-align: start; /* Snap to the start of each card */
+    background-color: var(--secondary-bg-color); /* Card background color */
+    text-align: center; /* Center align text */
+    opacity: 0; /* Start invisible */
+    transform: scale(0.95); /* Slightly smaller scale */
+    transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth appearance */
 }
 
-.navbar-brand, .nav-link {
-    color: #ffffff; /* White text for links */
+.card.active {
+    opacity: 1; /* Fully visible when active */
+    transform: scale(1); /* Full scale when active */
 }
 
-.navbar-brand:hover, .nav-link:hover {
-    color: #bb86fc; /* Purple highlight on hover */
+/* CSS Fix for Mobile Browsers */
+@supports (-webkit-touch-callout: none) {
+    .card {
+        height: -webkit-fill-available; /* Fix for Chrome on mobile */
+    }
 }
 
-/* Footer */
-footer {
-    background-color: #1e1e1e; /* Match navbar */
-    color: #bbbbbb; /* Lighter gray text */
-    font-size: 14px;
-    padding: 10px 0;
+/* Card Body (Vertically and Horizontally Centered) */
+.card-body {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    padding: 20px; /* Add some padding for spacing */
 }
 
-/* Buttons */
-button {
-    background-color: #bb86fc; /* Purple buttons */
-    color: #121212; /* Dark text */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+/* Hero Section */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    gap: 1rem; /* Space between elements */
 }
 
-button:hover {
-    background-color: #9a64e0; /* Slightly darker purple */
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Circular profile image */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Subtle shadow */
+    border: 3px solid var(--accent-color); /* Purple border */
+    object-fit: cover; /* Maintain aspect ratio */
+    margin-bottom: 1rem;
 }
 
 /* Headings */
-h1, h2, h3 {
-    color: #bb86fc; /* Purple highlights for headings */
+h2 {
+    font-size: 2.5rem; /* Large heading */
+    font-weight: bold;
+    color: var(--accent-color); /* Purple accent */
+    margin: 0;
 }
 
-/* Forms */
-input, textarea {
-    background-color: #1e1e1e;
-    color: #ffffff;
-    border: 1px solid #bb86fc;
-    padding: 10px;
-    border-radius: 5px;
-    width: 100%;
-    margin-bottom: 15px;
+/* Text */
+.card-body p {
+    font-size: 1.2rem; /* Larger text for readability */
+    line-height: 1.8;
+    max-width: 600px; /* Limit width for better readability */
+    margin: 1rem auto; /* Add vertical spacing */
+    color: var(--secondary-text-color); /* Softer text color */
 }
 
-input::placeholder, textarea::placeholder {
-    color: #bbbbbb;
+/* Scroll Indicator */
+.scroll-indicator {
+    margin-top: 2rem;
+    animation: bounce 2s infinite; /* Bouncing animation */
 }
 
-input:focus, textarea:focus {
-    outline: none;
-    border-color: #e3a7fc;
+.scroll-indicator i {
+    font-size: 3rem; /* Large arrow */
+    color: var(--accent-color); /* Purple accent */
 }
 
-/* Custom Colors */
-.text-purple {
-    color: #bb86fc; /* Purple text */
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Start and end at same position */
+    }
+    50% {
+        transform: translateY(15px); /* Move down slightly */
+    }
 }
 
-.card {
-    background-color: #1e1e1e; /* Dark cards */
-    color: #ffffff; /* White text */
-    border: 0px; /* No borders */
-}
-
+/* Card Title */
 .card-title {
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #bb86fc;
+    font-size: 2.5rem;
+    color: var(--accent-color); /* Purple accent */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2%;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem; /* Add spacing below the title */
+}
+
+.card-divider {
+    width: 50%;
+    margin: 0 auto 2rem;
+    border: 1px solid var(--accent-color); /* Purple divider */
+}
+
+.accordion-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four columns */
+    gap: 20px; /* Spacing between items */
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.accordion-item {
+    background-color: #1c1c1e; /* Dark background matching your theme */
+    border: 1px solid #2a2a2d; /* Slightly lighter border */
+    border-radius: 8px; /* Fully rounded corners */
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow for a sleek look */
+    text-align: center; /* Center align headers and content */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover animation */
+    color: #f5f5f7; /* Light text color for contrast */
+}
+
+/* Hover Effects */
+.accordion-item:hover {
+    transform: translateY(-5px); /* Slightly lift the card */
+    box-shadow: 0 0 25px 5px var(--highlight-color); /* Brighten all borders */
+    border-color: var(--highlight-color); /* Match the glow color */
+}
+
+/* Header Styling */
+.accordion-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #d3d3d4; /* Light gray header text */
+    text-transform: uppercase; /* Consistent styling */
+}
+
+/* Content Styling */
+.accordion-content {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.accordion-content li {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #b8b8ba; /* Slightly muted text color for items */
+}
+
+/* Fix for Border Radius (Ensures First and Last Items Display Properly) */
+.accordion-item:first-child {
+    border-radius: 8px; /* Ensure the top corners are rounded */
+}
+
+.accordion-item:last-child {
+    border-radius: 8px; /* Ensure the bottom corners are rounded */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .accordion-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .accordion-grid {
+        grid-template-columns: 1fr; /* Single column for mobile */
+        gap: 10px;
+    }
+
+    .accordion-item {
+        padding: 10px;
+    }
+
+    .accordion-header {
+        font-size: 16px; /* Adjust font size for mobile */
+    }
+
+    .accordion-content li {
+        font-size: 12px; /* Adjust font size for mobile */
+    }
+}
+
+/* Soft Skills Tags */
+.soft-skills-tags {
+    display: flex;
+    flex-wrap: wrap; /* Wrap tags onto multiple lines if needed */
+    gap: 1rem; /* Space between tags */
+    justify-content: center; /* Center-align tags */
+    margin-top: 2rem; /* Add spacing above soft skills section */
+}
+
+.skill-tag {
+    background-color: #333333; /* Dark background for tags */
+    color: var(--primary-text-color); /* White text */
+    padding: 0.5rem 1rem;
+    border-radius: 20px; /* Rounded edges for tags */
+    font-size: 1rem;
     display: inline-block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-a {
-    color: #bb86fc;
-    text-decoration: none;
+.skill-tag:hover {
+    background-color: var(--accent-color); /* Purple highlight on hover */
+    transform: scale(1.1); /* Slight zoom effect */
 }
 
-a:hover {
-    color: #e3a7fc;
-    text-decoration: underline;
+/* Experience Section Refinement */
+#experience {
+    padding: 40px 20px;
+    text-align: center; /* Center-align section title */
 }
 
-.btn-link {
-    text-decoration: none;
-    color: #bb86fc;
+/* General Experience Section Typography Improvements */
+#experience .job-title {
+    font-size: 2rem;
+    font-weight: 500; /* Lighter font weight for the title */
+    margin-bottom: 0.5rem;
+    color: var(--accent-color); /* Purple highlight on hover */
+    text-align: center;
 }
 
-.btn-link:hover {
-    color: #e3a7fc;
+#experience .job-position {
+    font-size: 1.4rem;
+    font-weight: 400; /* Lighter font weight */
+    color: var(--secondary-text-color);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    text-align: center;
+}
+
+#experience .job-description {
+    font-size: 1.1rem; /* Slightly smaller text for better balance */
+    font-weight: 300; /* Light font for body text */
+    line-height: 2; /* Increased line height for readability */
+    letter-spacing: 0.02em; /* Slightly increased letter spacing */
+    color: var(--secondary-text-color);
+    margin-bottom: 2.5rem; /* More spacing below */
+    text-align: justify;
+}
+
+#experience .highlights-title {
+    font-size: 1.6rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    text-align: left;
+    border-bottom: 2px solid var(--divider-color); /* Subtle underline */
+    padding-bottom: 0.5rem;
+}
+
+#experience .experience-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    text-align: left; /* Align list to the left */
+}
+
+#experience .experience-list li {
+    font-size: 1.1rem; /* Slightly smaller text for balance */
+    font-weight: 300; /* Lighter weight for a cleaner look */
+    color: var(--primary-text-color);
+    line-height: 2; /* Better spacing between lines */
+    letter-spacing: 0.02em; /* Slightly increased spacing for clarity */
+    margin-bottom: 1.2rem; /* Add space between items */
+}
+
+#experience .experience-list li strong {
+    font-weight: 500; /* Emphasize bold terms */
+    color: var(--accent-color);
+}
+
+
+.job-entry {
+    padding: 30px;
+    background-color: var(--secondary-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 2rem auto; /* Center-align the card */
+    max-width: 800px; /* Limit width for better readability */
+}
+
+/* Education Section Refinement */
+#education .education-entry {
+    margin-bottom: 2rem; /* Space between entries */
+    text-align: center;
+}
+
+#education .education-entry h4 {
+    font-size: 1.8rem; /* Slightly larger for diploma/degree title */
+    font-weight: bold;
+    color: var(--accent-color); /* Accent color for titles */
+    margin-bottom: 0.5rem; /* Space below title */
+}
+
+#education .education-entry p {
+    font-size: 1.2rem; /* Font size for details */
+    font-weight: 300; /* Light font for body text */
+    line-height: 1.8; /* Better readability */
+    color: var(--secondary-text-color); /* Softer text color */
+    margin: 0.5rem 0; /* Add space between details */
+}
+
+#education .education-divider {
+    border: 0;
+    border-top: 1px solid var(--divider-color); /* Subtle divider */
+    margin: 2rem auto; /* Space around divider */
+    width: 80%; /* Shorter divider */
+}
+
+/* Contact Icons Styling */
+.contact-icons {
+    display: flex; /* Align icons horizontally */
+    justify-content: center; /* Center icons */
+    gap: 2rem; /* Space between icons */
+    margin-top: 2rem; /* Add spacing above the icons */
+}
+
+.contact-link {
+    color: var(--accent-color); /* Use accent color for the icons */
+    font-size: 2rem; /* Default icon size */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.contact-link:hover {
+    transform: scale(1.2); /* Enlarge icons on hover */
+    color: var(--highlight-color); /* Highlight color on hover */
+}
+
+.contact-link i {
+    display: inline-block; /* Ensure proper spacing for icons */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .job-entry {
+        padding: 20px;
+        margin: 1.5rem auto;
+    }
+
+    .job-title {
+        font-size: 1.8rem;
+    }
+
+    .job-position {
+        font-size: 1rem;
+    }
+
+    .job-description {
+        font-size: 1rem;
+    }
+
+    .highlights-title {
+        font-size: 1.4rem;
+    }
+
+    .experience-list li {
+        font-size: 1rem;
+    }
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+
+    .soft-skills-tags {
+        gap: 0.8rem; /* Adjust spacing */
+    }
+
+    .skill-tag {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .soft-skills-tags {
+        gap: 0.5rem;
+    }
+
+    .skill-tag {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .job-title {
+        font-size: 18px;
+    }
+
+    .job-position {
+        font-size: 14px;
+    }
+
+    .job-description {
+        font-size: 12px;
+    }
+
+    .highlights-title {
+        font-size: 16px;
+    }
+
+    .experience-list li {
+        font-size: 12px;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .profile-photo {
+        width: 200px;
+        height: 200px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .card-body p {
+        font-size: 1rem;
+    }
+
+    .scroll-indicator i {
+        font-size: 2.5rem;
+    }
 }

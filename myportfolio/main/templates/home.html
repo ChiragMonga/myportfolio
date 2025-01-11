@@ -4,111 +4,229 @@
 {% block title %}Home | My Portfolio{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <!-- About Me -->
-    <div class="card mb-4 bg-dark text-white border-light">
-        <div class="card-header">
-            <button class="btn btn-link text-purple" type="button" data-bs-toggle="collapse" data-bs-target="#aboutContent" aria-expanded="true" aria-controls="aboutContent">
-                <h2 class="mb-0">About Me</h2>
-            </button>
-        </div>
-        <div id="aboutContent" class="collapse show">
-            <div class="card-body">
-                <p>
-                    Hi, I'm **Chirag Monga**, a passionate Software Engineer specializing in scalable, secure, and user-focused solutions.
-                    I love solving complex problems, whether through backend development or automated testing.
-                </p>
+<div class="content">
+    <!-- About Me Card -->
+    <div id="about" class="card">
+        <div class="card-body">
+            <!-- Add Hero Section with Image -->
+            <div class="hero-section">
+                <img src="{% static 'images/me1.png' %}" alt="Chirag Monga" class="profile-photo">
+                <h2>Hi, I'm Chirag Monga.</h2>
+            </div>
+            
+            <!-- Enhanced About Section -->
+            <p>
+                I am an innovative Intermediate Software Engineer with a passion for developing secure,
+                scalable, and user-focused solutions. Proven ability to optimize performance and enhance security
+                in complex systems. Eager to contribute to groundbreaking technologies in a fresh environment.
+            </p>
+            
+            <!-- Add Scroll Indicator -->
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
             </div>
         </div>
     </div>
 
-    <!-- Skills -->
-    <div class="card mb-4 bg-dark text-white border-light">
-        <div class="card-header">
-            <button class="btn btn-link text-purple" type="button" data-bs-toggle="collapse" data-bs-target="#skillsContent" aria-expanded="false" aria-controls="skillsContent">
-                <h2 class="mb-0">Skills</h2>
-            </button>
-        </div>
-        <div id="skillsContent" class="collapse">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h5>Programming Languages</h5>
-                        <ul>
-                            <li>Python</li>
-                            <li>Java</li>
-                            <li>C++</li>
-                            <li>Swift</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <h5>Frameworks & Tools</h5>
-                        <ul>
-                            <li>Django</li>
-                            <li>React</li>
-                            <li>Docker</li>
-                            <li>Selenium</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <h5>Databases</h5>
-                        <ul>
-                            <li>PostgreSQL</li>
-                            <li>MySQL</li>
-                            <li>SQLite</li>
-                        </ul>
-                    </div>
+    <div id="skills" class="card">
+        <div class="card-body">
+            <!-- Technical Skills -->
+            <h2 class="card-title"><i class="fas fa-tools"></i> Technical Skills</h2>
+            <hr class="card-divider">
+
+            <!-- Accordion Grid -->
+            <div class="accordion-grid">
+                <!-- Programming Languages -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header">Programming Languages</h3>
+                    <ul class="accordion-content">
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>Swift</li>
+                        <li>C++ (OOP)</li>
+                    </ul>
+                </div>
+
+                <!-- Tools & Technologies -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header">Tools & Technologies</h3>
+                    <ul class="accordion-content">
+                        <li>Docker</li>
+                        <li>Git</li>
+                        <li>Jenkins</li>
+                        <li>Apache</li>
+                    </ul>
+                </div>
+
+                <!-- Test Automation -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header">Test Automation</h3>
+                    <ul class="accordion-content">
+                        <li>Pytest BDD</li>
+                        <li>Selenium</li>
+                        <li>JMeter</li>
+                    </ul>
+                </div>
+
+                <!-- Databases -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header">Databases</h3>
+                    <ul class="accordion-content">
+                        <li>MySQL</li>
+                        <li>PostgreSQL</li>
+                        <li>Oracle DB</li>
+                        <li>Firebase</li>
+                    </ul>
+                </div>
+
+                <!-- Security -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header">Security</h3>
+                    <ul class="accordion-content">
+                        <li>IDS (Snort)</li>
+                        <li>Linux Firewalls (iptables)</li>
+                        <li>Penetration Testing (ZAProxy)</li>
+                        <li>Vulnerability Assessment</li>
+                    </ul>
+                </div>
+
+                <!-- Data Structures & Algorithms -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header">Data Structures & Algorithms</h3>
+                    <ul class="accordion-content">
+                        <li>Task Optimization</li>
+                        <li>Advanced Data Structures</li>
+                        <li>Dynamic Programming</li>
+                        <li>Sorting Algorithms</li>
+                    </ul>
+                </div>
+
+                <!-- Digital Communication Interfaces -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header">Digital Communication Interfaces</h3>
+                    <ul class="accordion-content">
+                        <li>CANbus</li>
+                        <li>Ethernet</li>
+                        <li>MS/TP</li>
+                        <li>BACnet/SC</li>
+                        <li>Bluetooth</li>
+                    </ul>
+                </div>
+
+                <!-- Network Protocols -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header">Network Protocols</h3>
+                    <ul class="accordion-content">
+                        <li>TCP/IP</li>
+                        <li>UDP</li>
+                        <li>HTTP/HTTPS</li>
+                        <li>TLS</li>
+                        <li>DNS</li>
+                    </ul>
                 </div>
             </div>
+    
+            <!-- Soft Skills -->
+            <h2 class="card-title"><i class="fas fa-lightbulb"></i> Soft Skills</h2>
+            <hr class="card-divider">
+            <div class="soft-skills-tags">
+                <span class="skill-tag">Adaptability: Thrives in fast-paced environments</span>
+                <span class="skill-tag">Communication: Clear ideas and strong teamwork</span>
+                <span class="skill-tag">Critical Thinking: Analyzes complex problems, finds tech solutions</span>
+                <span class="skill-tag">Time Management: Efficient organizer</span>
+            </div>
         </div>
     </div>
+    
 
-    <!-- Experience -->
-    <div class="card mb-4 bg-dark text-white border-light">
-        <div class="card-header">
-            <button class="btn btn-link text-purple" type="button" data-bs-toggle="collapse" data-bs-target="#experienceContent" aria-expanded="false" aria-controls="experienceContent">
-                <h2 class="mb-0">Experience</h2>
-            </button>
-        </div>
-        <div id="experienceContent" class="collapse">
-            <div class="card-body">
-                <ul>
-                    <li><strong>Delta Controls Inc.</strong> - Software Developer in Test</li>
-                    <li><strong>Co-op at XYZ Company</strong> - Backend Development</li>
+    <!-- Experience Card -->
+    <div id="experience" class="card">
+        <div class="card-body">
+            <h2 class="card-title"><i class="fas fa-briefcase"></i> Experience</h2>
+            <hr class="card-divider">
+            
+            <!-- Single Job Entry -->
+            <div class="job-entry">
+                <h3 class="job-title">Delta Controls Inc.</h3>
+                <p class="job-position"><em>Software Developer in Test</em> | 2022 - Present</p>
+                <p class="job-description">
+                    As a Software Developer in Test at Delta Controls Inc., I contributed to building scalable, 
+                    secure, and efficient testing frameworks for complex systems. My focus was on delivering 
+                    high-quality products by identifying vulnerabilities and optimizing system performance.
+                </p>
+                <h4 class="highlights-title">Key Achievements:</h4>
+                <ul class="experience-list">
+                    <li>
+                        <strong>Firmware Testing:</strong> Enhanced and maintained a high-coverage Python-based test automation framework.
+                    </li>
+                    <li>
+                        <strong>Security Testing Initiative:</strong> Established a rigorous vulnerability documentation framework, significantly improving cybersecurity awareness.
+                    </li>
+                    <li>
+                        <strong>Performance Testing:</strong> Optimized application performance by 20% through targeted load and stress testing.
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- Education -->
-    <div class="card mb-4 bg-dark text-white border-light">
-        <div class="card-header">
-            <button class="btn btn-link text-purple" type="button" data-bs-toggle="collapse" data-bs-target="#educationContent" aria-expanded="false" aria-controls="educationContent">
-                <h2 class="mb-0">Education</h2>
-            </button>
-        </div>
-        <div id="educationContent" class="collapse">
-            <div class="card-body">
-                <p>Bachelor of Science in Computer Science</p>
-                <p><em>University Name Here</em></p>
+
+   <!-- Education Card -->
+    <div id="education" class="card">
+        <div class="card-body">
+            <h2 class="card-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+            <hr class="card-divider">
+            
+            <!-- BTech Information -->
+            <div class="education-entry">
+                <h4>Bachelor of Technology (BTech)</h4>
+                <p>Specializing in Network Security Applications</p>
+                <p><em>British Columbia Institute of Technology (BCIT)</em></p>
+                <p><em>09/2020 - 05/2024</em></p>
+            </div>
+            
+            <hr class="education-divider">
+
+            <!-- CST Diploma Information -->
+            <div class="education-entry">
+                <h4>Computer Systems Technology (CST) Diploma</h4>
+                <p>Specializing in Web and Mobile Applications</p>
+                <p><em>British Columbia Institute of Technology (BCIT)</em></p>
+                <p><em>01/2018 - 12/2019</em></p>
             </div>
         </div>
     </div>
 
-    <!-- Contact -->
-    <div class="card mb-4 bg-dark text-white border-light">
-        <div class="card-header">
-            <button class="btn btn-link text-purple" type="button" data-bs-toggle="collapse" data-bs-target="#contactContent" aria-expanded="false" aria-controls="contactContent">
-                <h2 class="mb-0">Contact</h2>
-            </button>
-        </div>
-        <div id="contactContent" class="collapse">
-            <div class="card-body text-center">
-                <p>Email: <a href="mailto:chirag.monga@hotmail.ca" class="text-purple">chirag.monga@hotmail.ca</a></p>
-                <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-purple">linkedin.com/in/yourprofile</a></p>
-                <p>GitHub: <a href="https://github.com/yourgithub" target="_blank" class="text-purple">github.com/yourgithub</a></p>
+
+    <!-- Contact Card -->
+    <div id="contact" class="card">
+        <div class="card-body">
+            <h2 class="card-title"><i class="fas fa-envelope"></i> Contact</h2>
+            <hr class="card-divider">
+
+            <!-- Links -->
+            <p>Email: <a href="mailto:chirag.monga@hotmail.ca">chirag.monga@hotmail.ca</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/chirag-monga-99b82810b/" target="_blank">https://www.linkedin.com/in/chirag-monga-99b82810b</a></p>
+            <p>GitHub: <a href="https://github.com/ChiragMonga" target="_blank">https://github.com/ChiragMonga</a></p>
+
+            <!-- Icons Below Links -->
+            <div class="contact-icons">
+                <!-- Email Icon -->
+                <a href="mailto:chirag.monga@hotmail.ca" class="contact-link" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <!-- LinkedIn Icon -->
+                <a href="https://www.linkedin.com/in/chirag-monga-99b82810b/" target="_blank" class="contact-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <!-- GitHub Icon -->
+                <a href="https://github.com/ChiragMonga" target="_blank" class="contact-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </div>
     </div>
+
+
 </div>
 {% endblock %}
